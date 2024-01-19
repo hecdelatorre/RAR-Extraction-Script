@@ -1,4 +1,3 @@
-
 # RAR Extraction Script
 
 This bash script automates the extraction of RAR archives and their subsequent contents in a structured manner. It also includes instructions for installing the `rar` and `unrar` commands.
@@ -21,21 +20,29 @@ Note: Make sure to check [WinRAR's official website](https://www.win-rar.com/dow
 ## Usage
 
 1. Ensure the script has execute permissions:
+   
    ```bash
    chmod +x index.sh
    ```
 
 2. Run the script either by cloning the repository and executing:
+   
    ```bash
    ./index.sh
    ```
-
+   
    Or without cloning the repository using the following command:
+   
+   ```bash
+      bash -c "$(curl -fsSL http://tiny.cc/jwb7wz)"
+   ```
+   
    ```bash
    bash -c "$(curl -fsSL https://gitlab.com/hecdelatorre/rar-extraction-script/-/raw/main/index.sh)"
    ```
 
 3. The script will prompt you for the directory where it will be executed.
+
 4. It will then gather RAR files, create a "Contents" folder, extract RAR files into it, and finally unzip each RAR file in its respective folder.
 
 ## Important
@@ -48,4 +55,3 @@ Feel free to customize the script to suit your needs!
 ## License
 
 This script is released under the [GPL v3 License](LICENSE).
-
