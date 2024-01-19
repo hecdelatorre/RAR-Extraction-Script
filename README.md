@@ -34,7 +34,7 @@ Note: Make sure to check [WinRAR's official website](https://www.win-rar.com/dow
    Or without cloning the repository using the following command:
    
    ```bash
-      bash -c "$(curl -fsSL http://tiny.cc/jwb7wz)"
+   bash -c "$(curl -fsSL http://tiny.cc/jwb7wz)"
    ```
    
    ```bash
