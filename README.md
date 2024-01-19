@@ -1,31 +1,35 @@
 # RAR Extraction Script
 
-## Overview
-This Bash script automates the extraction of RAR files, creating a clean directory structure and handling the extraction process quietly.
+This bash script automates the extraction of RAR archives and their subsequent contents in a structured manner. It also includes instructions for installing the `rar` and `unrar` commands.
 
-## Features
-- Gathers a list of RAR files in the specified directory.
-- Creates or deletes the 'Contents' folder for extracted files.
-- Extracts RAR files into the 'Contents' folder, keeping the structure.
-- Unzips each RAR file in its respective folder with silent output.
-- Deletes the successfully extracted RAR files.
+## Prerequisites
+
+Before using the script, ensure that the `rar` and `unrar` commands are installed on your system. Follow the steps below to install these commands:
+
+### For Bash or Zsh Users:
+
+```bash
+curl -fsSL https://www.win-rar.com/fileadmin/winrar-versions/rarlinux-x64-624.tar.gz | sudo tar zxvf - -C /opt
+echo 'export PATH=$PATH:/opt/rar' >> ~/.bashrc  # For Bash users
+# or
+echo 'export PATH=$PATH:/opt/rar' >> ~/.zshrc   # For Zsh users
+```
+
+Note: Make sure to check [WinRAR's official website](https://www.win-rar.com/download.html) for the most recent version.
 
 ## Usage
-1. Run the script in the desired directory.
-2. Enter the directory where the script will be executed.
-3. The script will:
-   - List available RAR files.
-   - Manage the 'Contents' folder.
-   - Extract RAR files into the 'Contents' folder.
-   - Unzip each RAR file in its respective folder.
-   - Delete the successfully extracted RAR files.
 
-## Instructions
-- Ensure you have 'rar' and 'unrar' installed on your system.
-- Run the script by executing: `./index.sh > README.md`.
+1. Run the script in the desired directory.
+2. The script will prompt you for the directory where it will be executed.
+3. It will then gather RAR files, create a Contents folder, extract RAR files into it, and finally unzip each RAR file in its respective folder.
+
+## Important
+
+- The script uses the `rar` and `unrar` commands, which may not be available in the default repositories.
+- Choose the appropriate command for your shell (Bash or Zsh) and update the corresponding configuration file.
+
+Feel free to customize the script to suit your needs!
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-- RAR and UNRAR are products of WinRAR, created by Alexander Roshal.
+This script is released under the [MIT License](LICENSE).
