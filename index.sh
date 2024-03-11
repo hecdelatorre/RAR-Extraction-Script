@@ -15,6 +15,16 @@ get_execution_directory() {
 # Initialize an array to store information about RAR files
 rar_info=()
 
+# Function to display elapsed time while RAR extraction is in progress
+display_elapsed_time() {
+  local elapsed=0
+  while [ "$(jobs -r | wc -l)" -gt 0 ]; do
+    sleep 1
+    elapsed=$((elapsed + 1))
+    printf "\rElapsed time: %02d:%02d:%02d" $((elapsed/3600)) $((elapsed%3600/60)) $((elapsed%60))
+  done
+}
+
 # Function to gather RAR files in the current directory
 gather_rar_files() {
   local rar_files=(*.rar)
@@ -44,8 +54,11 @@ extract_rar_files() {
   local contents_folder="Contents"
   
   for rar_file in "${rar_files[@]}"; do
-    rar x "$rar_file" -d "$contents_folder" -inul -o+
+    rar x "$rar_file" -d "$contents_folder" -inul -o+ &
   done
+  
+  display_elapsed_time
+  wait
 
   echo -e "\nResulting RAR files and their paths:"
   
@@ -64,6 +77,7 @@ unzip_in_respective_folders() {
     cd "$folder_path" > /dev/null || exit 1
     rar_file_name=$(basename "$rar_path")
     echo "Extracting from $rar_file_name"
+    (
     unrar x "$rar_file_name" -inul -o+
     
     if [ $? -eq 0 ]; then
@@ -73,9 +87,12 @@ unzip_in_respective_folders() {
     else
       echo "Error: Failed to extract $rar_file_name"
     fi
-    
+    ) &
     cd - > /dev/null || exit 1
   done
+
+  display_elapsed_time
+  wait
 }
 
 # Main script
