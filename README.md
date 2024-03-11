@@ -34,7 +34,7 @@ Note: Make sure to check [WinRAR's official website](https://www.win-rar.com/dow
    Or without cloning the repository using the following command:
    
    ```bash
-   bash -c "$(curl -fsSL https://gitlab.com/hecdelatorre/rar-extraction-script/-/raw/main/index.sh)"
+   bash -c "$(curl -fsSL https://codeberg.org/hecdelatorre/rar-extraction-script/raw/branch/main/index.sh)"
    ```
 
 3. The script will prompt you for the directory where it will be executed.
