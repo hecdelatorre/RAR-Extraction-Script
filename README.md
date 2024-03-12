@@ -2,6 +2,8 @@
 
 This bash script automates the extraction of RAR archives and their subsequent contents in a structured manner. It also includes instructions for installing the `rar` and `unrar` commands.
 
+Make a synchronous version that decompresses one file at a time and an asynchronous version that decompresses several files at once.
+
 ## Prerequisites
 
 Before using the script, ensure that the `rar` and `unrar` commands are installed on your system. Follow the steps below to install these commands:
@@ -22,20 +24,36 @@ Note: Make sure to check [WinRAR's official website](https://www.win-rar.com/dow
 1. Ensure the script has execute permissions:
    
    ```bash
-   chmod +x index.sh
+   chmod +x rar-extraction-synchronous.sh
+   ```
+   
+   or
+   
+   ```bash
+   chmod +x rar-extraction-asynchronous.sh
    ```
 
 2. Run the script either by cloning the repository and executing:
    
    ```bash
-   ./index.sh
+   chmod +x rar-extraction-synchronous.sh
    ```
    
-   Or without cloning the repository using the following command:
+   or
    
    ```bash
-   bash -c "$(curl -fsSL https://codeberg.org/hecdelatorre/rar-extraction-script/raw/branch/main/index.sh)"
+   chmod +x rar-extraction-asynchronous.sh
    ```
+
+   Or without cloning the repository using the following command:
+
+```bash
+bash -c "$(curl -fsSL https://codeberg.org/hecdelatorre/rar-extraction-script/raw/branch/main/rar-extraction-synchronous.sh)"
+```
+
+```bash
+bash -c "$(curl -fsSL https://codeberg.org/hecdelatorre/rar-extraction-script/raw/branch/main/rar-extraction-asynchronous.sh)"
+```
 
 3. The script will prompt you for the directory where it will be executed.
 
