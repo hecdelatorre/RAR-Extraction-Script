@@ -78,7 +78,7 @@ unzip_in_respective_folders() {
     rar_file_name=$(basename "$rar_path")
     echo "Extracting from $rar_file_name"
     (
-    unrar x "$rar_file_name" -inul -o+
+    rar x "$rar_file_name" -inul -o+
     
     if [ $? -eq 0 ]; then
       # Delete the RAR file after successful extraction
